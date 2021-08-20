@@ -11,7 +11,6 @@
 #include <sys/stat.h>
 
 char **token(char *line);
-int init_shell();
 void exe(char **words);
 int length(char *string);
 int number_words(char *str);
