@@ -2,7 +2,7 @@
 
 /**
  * principal function
- * return:0
+ * return: 0
 */
 
 int main()
@@ -11,7 +11,18 @@ int main()
 	
 	while (1)
 	{
-		line = prompt();
+		if (!isatty(STDIN_FILENO))
+		{
+			line = get_line();
+			if (line != NULL)
+			{
+				words = token(line);
+				exe(words);
+			}
+			exit(0);
+		}
+		prompt();
+		line = get_line();
 		if (line != NULL)
 		{
 			words = token(line);

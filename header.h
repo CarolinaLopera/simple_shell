@@ -15,6 +15,7 @@ int init_shell();
 void exe(char **words);
 int length(char *string);
 int number_words(char *str);
-char *prompt();
+void prompt();
+char *get_line();
 
 #endif

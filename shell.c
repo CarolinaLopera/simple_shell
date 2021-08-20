@@ -1,12 +1,16 @@
 #include "header.h"
-
-char *prompt()
+void prompt()
 {
-	char *prompt = "$ ", *line;
+	char *prompt = "JAC$ ";
+
+	write(STDOUT_FILENO, prompt, 5);
+}
+char *get_line()
+{
+	char *line;
 	size_t lineSize = 0;
 	int count_line = 0;
 	
-	write(STDOUT_FILENO, prompt, 2);
 	count_line = getline(&line, &lineSize, stdin);
 	
 	if (count_line > 1)
@@ -22,8 +26,13 @@ char **token(char *line)
 	char *tok;
 	char **words = NULL;
 	int j = 0;
+	int num_w = number_words(line);
 
-	words = malloc(50 * sizeof(char *));
+	if (num_w == 0)
+	{
+		return (NULL);
+	}
+	words = malloc((num_w + 2) * sizeof(char *));
 	tok = strtok(line, DELIM);
 	while (tok != NULL)
 	{
