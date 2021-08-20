@@ -9,11 +9,12 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <signal.h>
 
 char **token(char *line);
-int init_shell();
 void exe(char **words);
 int length(char *string);
 int number_words(char *str);
+char *prompt();
 
 #endif

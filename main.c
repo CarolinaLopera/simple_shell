@@ -1,14 +1,15 @@
 #include "header.h"
 
 /**
- * principal function
- * return:0
-*/
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
+ */
 
-int main()
+int main(void)
 {
 	char **words = NULL, *line;
-	
+
 	while (1)
 	{
 		line = prompt();
