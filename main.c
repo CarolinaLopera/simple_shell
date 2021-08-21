@@ -8,15 +8,33 @@
 
 int main(void)
 {
-	char **words = NULL, *line;
+	char **words = NULL, *line = NULL;
 
 	while (1)
 	{
-		line = prompt();
+		if (!isatty(STDIN_FILENO))
+		{
+			line = get_line();
+			if (line != NULL)
+			{
+				words = token(line);
+				exe(words, line);
+			}
+			exit(0);
+		}
+		prompt();
+		line = get_line();
 		if (line != NULL)
 		{
 			words = token(line);
-			exe(words);
+			if (words != NULL)
+			{
+				exe(words, line);
+				free(words);
+				words = NULL;
+				free(line);
+				line = NULL;
+			}
 		}
 	}
 	return (0);
