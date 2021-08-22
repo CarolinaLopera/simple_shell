@@ -4,6 +4,7 @@
  * @string: is the string
  * Return: number of chars
  */
+
 int length(char *string)
 {
 	int i = 0;
