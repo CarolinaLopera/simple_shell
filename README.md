@@ -1,4 +1,4 @@
-#simple shell
+# simple shell
 
 ## description 
 
@@ -19,26 +19,16 @@ In this project we develop a command line interpreter (shell), whose main functi
 
 ## List of allowed functions and system calls
 
-|exceve(2)            |execute the program                |
+* exceve(2)-> execute the program                
+* fork(2)  -> create a child process             
+* close(2) -> close the file descriptor          
+* malloc(3), free(3)->free dynamic memory and allocate   
+* write(2) -> write to file descriptor
+* wait(2)  -> wait for proces to change
+* strtok(3)-> Extract tokens from strings
+* stat(2)  -> Get file status
 
-|---------------------|-----------------------------------|
+  | nombre | descripcion | 
+  | --- | --- | 
+  | andres | duque | 
 
-|fork(2)              |create a child process             |
-
-|close(2)             |close the file descriptor          |
-
-|malloc(3), free(3)   |free dynamic memory and allocate   |
-
-|write(2)             |write to file descriptor           |
-
-|                     |                                   |
-
-|                     |                                   |
-
-|                     |                                   |
-
-|                     |                                   |
-
-|                     |                                   |
-
-|                     |                                   |
