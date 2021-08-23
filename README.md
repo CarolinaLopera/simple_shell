@@ -30,7 +30,51 @@ In this project we develop a command line interpreter (shell), whose main functi
 | strtok(3) | Extract tokens from strings | 
 | stat(2) | Get file status | 
 
-  | nombre | descripcion | 
-  | --- | --- | 
-  | andres | duque | 
+## our own functions
+
+### main.c
+
+This is the main function of our simple shell, in which we use three fundamental functions which are: getline issaty.
+
+getline helped us to read what the user sent through the command line, issaty helped us to understand in a better way, how our shell worked in an interactive and non-interactive way.
+
+### shell.c
+
+this file contains three functions which are necessary for the optimal development of our shell
+
+| function | description | 
+| --- | --- |
+| prompt() | Display a prompt and wait for the user to type a command |
+| *get_line() |  |
+| **token(char *line) |  |
+| void exe(char **words, char *line) |  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## compilation
+
+we will compile as follows
+
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+
 
