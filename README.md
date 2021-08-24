@@ -69,13 +69,16 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ### Authors
 
 * **carolina lopera**
-[GitHub](https://github.com/CarolinaLopera)
+
+* [GitHub](https://github.com/CarolinaLopera)
 
 * **jarold hakins**
-[GitHub](https://github.com/jaroldhakins)
+
+* [GitHub](https://github.com/jaroldhakins)
 
 * **andres duque**
-[GitHub](https://github.com/totod8)
+
+*[GitHub](https://github.com/totod8)
 
 
 
