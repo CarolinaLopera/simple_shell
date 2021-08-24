@@ -45,9 +45,18 @@ this file contains three functions which are necessary for the optimal developme
 | function | description | 
 | --- | --- |
 | prompt() | Display a prompt and wait for the user to type a command |
-| *get_line() |  |
-| **token(char *line) |  |
-| void exe(char **words, char *line) |  |
+| *get_line() | read all the information that is entered by the keyboard |
+| **token(char *line) | get token of string |
+| void exe(char **words, char *line) | execute a string |
+
+### path.c
+
+this function checks the existence of a command in the path
+
+| function | description |
+| --- | --- |
+| **split_path(char *path) |  |
+| discover_path(char *line, char **env, int num_c) | walk the path and find where the command is going to be executed |
 
 ### numbers_words.c
 
