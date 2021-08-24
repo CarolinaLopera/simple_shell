@@ -1,12 +1,10 @@
 #include "header.h"
 
-void prompt()
-{
-	char *prompt = "JAC$ ";
-
-	write(STDOUT_FILENO, prompt, 5);
-}
-
+/**
+ * get_line - This function get the a string of stdin.
+ *
+ * Return: Always a string that is the line.
+ */
 char *get_line()
 {
 	char *line;
@@ -15,7 +13,7 @@ char *get_line()
 
 	count_line = getline(&line, &lineSize, stdin);
 
-	if (count_line == -1)
+	if (count_line == EOF)
 	{
 		free(line);
 		line = NULL;
@@ -29,13 +27,17 @@ char *get_line()
 	return (NULL);
 }
 
+/**
+ * token - This split a string in words.
+ *
+ * Return: Always a array of pointers.
+ * @line: Is the line take of stdin.
+ */
 char **token(char *line)
 {
 	const char *DELIM = " ";
-	char *tok;
-	char **words = NULL;
-	int j = 0;
-	int num_w = number_words(line);
+	char *tok, **words = NULL;
+	int j = 0, num_w = number_words(line);
 
 	if (num_w == 0)
 	{
@@ -54,23 +56,42 @@ char **token(char *line)
 	}
 	words[j] = NULL;
 
+	/*free(line);
+	line = NULL;*/
 	return (words);
 }
 
-void exe(char **words, char *line)
+/**
+ * exe - This function execute a line of commands.
+ *
+ * Return: Always void.
+ * @words: Is a array of arguments passed to a program.
+ * @num_w: Is the number of words of the attay.
+ * @num_c: Is a number to add a command executed.
+ */
+int exe(char **words, int num_w, char *env[])
 {
-	int exec = 0;
-	int num_w = number_words(line);
-	int len = length(words[num_w - 1]) - 1, i = 0;
-	char *argx = malloc((len) * sizeof(char));
+	int exec = 0, i, num_commands = 0;
+	int len;
+	char *argx;
 	pid_t p1;
+	(void)env, (void)num_commands;
 
-	for (; i < len; i++)
+	num_w--;
+	len = length(words[num_w]);
+	len--;
+	argx = malloc(len * sizeof(char));
+
+	for (i = 0; i < len; i++)
 	{
-		argx[i] = *words[num_w - 1];
-		words[num_w - 1]++;
+		argx[i] = *words[num_w];
+		words[num_w]++;
 	}
-	words[num_w - 1] = argx;
+	argx[len] = '\0';
+	words[num_w] = argx;
+
+	/*for (i = 0; words[i] != NULL; i++)
+		printf("%s\n", words[i]);*/
 
 	p1 = fork();
 	wait(NULL);
@@ -82,4 +103,11 @@ void exe(char **words, char *line)
 	}
 	free(argx);
 	argx = NULL;
+	free(words);
+	words = NULL;
+	return (0);
+	/*discover_path(line, env, num_commands);*/
+
+	/*free(line);
+	line = NULL;*/
 }

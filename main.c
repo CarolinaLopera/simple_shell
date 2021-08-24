@@ -4,11 +4,13 @@
  * main - check the code for Holberton School students.
  *
  * Return: Always 0.
+ *
  */
-
-int main(void)
+int main(int argc, char *argv[], char *env[])
 {
 	char **words = NULL, *line = NULL;
+	int num_words;
+	(void)argc, (void)argv;
 
 	while (1)
 	{
@@ -18,7 +20,8 @@ int main(void)
 			if (line != NULL)
 			{
 				words = token(line);
-				exe(words, line);
+				if (words != NULL)
+					exe(words, num_words, env);
 			}
 			exit(0);
 		}
@@ -26,15 +29,10 @@ int main(void)
 		line = get_line();
 		if (line != NULL)
 		{
+			num_words = number_words(line);
 			words = token(line);
 			if (words != NULL)
-			{
-				exe(words, line);
-				free(words);
-				words = NULL;
-				free(line);
-				line = NULL;
-			}
+				exe(words, num_words, env);
 		}
 	}
 	return (0);
