@@ -19,5 +19,6 @@ char *get_line();
 char **split_path(char *path);
 char *discover_path(char *line, char **env);
 char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
 
 #endif
