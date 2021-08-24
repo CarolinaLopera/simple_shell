@@ -13,8 +13,10 @@ char *get_line()
 	
 	count_line = getline(&line, &lineSize, stdin);
 
-	if (count_line == EOF)
+	if (count_line == -1)
 	{
+		free(line);
+		line = NULL;
 		write(STDIN_FILENO, "\n", 1);
 		exit(0);
 		
@@ -36,6 +38,8 @@ char **token(char *line)
 
 	if (num_w == 0)
 	{
+		free(line);
+		line = NULL;
 		return (NULL);
 	}
 	words = malloc((num_w + 2) * sizeof(char *));
@@ -51,25 +55,31 @@ char **token(char *line)
 	return (words);
 }
 
-void exe(char **words)
+void exe(char **words, char *line)
 {
 	int exec = 0;
-	int len = length(words[0]) - 1, i = 0;
-	char *path = malloc((len) * sizeof(char));
+	int num_w = number_words(line);
+	int len = length(words[num_w - 1]) - 1, i = 0;
+	char *argx = malloc((len) * sizeof(char));
 	pid_t p1;
 
 	for (; i < len; i++)
 	{
-		path[i] = *words[0];
-		words[0]++;
+		argx[i] = *words[num_w - 1];
+		words[num_w - 1]++;
+		
 	}
+	words[num_w - 1] = argx;
 
 	p1 = fork();
 	wait(NULL);
 	if (p1 == 0)
 	{
-		exec = execve(path, words, NULL);
+		exec = execve(words[0], words, NULL);
 		if (exec == -1)
 			write(STDOUT_FILENO, "./hsh: No such file or directory\n", 33);
+		
 	}
+	free(argx);
+	argx = NULL;
 }

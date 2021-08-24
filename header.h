@@ -11,10 +11,13 @@
 #include <sys/stat.h>
 
 char **token(char *line);
-void exe(char **words);
+void exe(char **words, char *line);
 int length(char *string);
 int number_words(char *str);
 void prompt();
 char *get_line();
+char **split_path(char *path);
+char *discover_path(char *line, char **env);
+char *_strcat(char *dest, char *src);
 
 #endif
