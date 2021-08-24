@@ -49,11 +49,33 @@ this file contains three functions which are necessary for the optimal developme
 | **token(char *line) |  |
 | void exe(char **words, char *line) |  |
 
+### numbers_words.c
+
+this file has two functions whose objective is to return the number of words in a string.
+
+| function | description |
+| --- | --- |
+| length(char *string) | count number of characters | 
+| number_words(char *str) | count number of words | 
+
+### compilation
+
+we will compile as follows
+
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 
 
+### Authors
 
+* **carolina lopera**
+[GitHub](https://github.com/CarolinaLopera)
 
+* **jarold hakins**
+[GitHub](https://github.com/jaroldhakins)
+
+* **andres duque**
+[GitHub](https://github.com/totod8)
 
 
 
