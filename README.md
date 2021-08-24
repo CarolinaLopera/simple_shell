@@ -68,38 +68,17 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 ### Authors
 
-* **carolina lopera**
+**Carolina Lopera**
 
 * [GitHub](https://github.com/CarolinaLopera)
 
-* **jarold hakins**
+**Jarold Hakins**
 
 * [GitHub](https://github.com/jaroldhakins)
 
-* **andres duque**
+**Andres Duque**
 
-*[GitHub](https://github.com/totod8)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## compilation
-
-we will compile as follows
-
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+* [GitHub](https://github.com/totod8)
 
 
 
