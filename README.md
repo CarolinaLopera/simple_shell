@@ -4,12 +4,12 @@ In this project we develop a command line interpreter (shell), whose main functi
 ## project information
 ### Requirements
  * Allowed editors: vi, vim, emacs
- * All your files will be compiled on Ubuntu 20.04 LTS using.
- * All your files should end with a new line.
- * Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
- * Your shell should not have any memory leaks
- * No more than 5 functions per file
- * All your header files should be include guarded
+   * All your files will be compiled on Ubuntu 20.04 LTS using.
+     * All your files should end with a new line.
+     * Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+     * Your shell should not have any memory leaks
+     * No more than 5 functions per file
+     * All your header files should be include guarded
        ## List of allowed functions and system calls
        | function | description |
        | --- | --- |
@@ -47,7 +47,6 @@ In this project we develop a command line interpreter (shell), whose main functi
        our shell works interactively as follows:
        ![exe](https://user-images.githubusercontent.com/85572579/130726248-482e16c7-b606-4259-8af0-4a2517c435f1.png)
        ![exe3](https://user-images.githubusercontent.com/85572579/130729120-997e151b-3b49-43cb-9ff1-6528fb190f3e.png)
-       
        and it also works in non-interactive mode as follow:
        ![exe4](https://user-images.githubusercontent.com/85572579/130832781-4588c364-74ef-4c1d-b1d6-5f1c7a167e5c.png)
        ## Authors
