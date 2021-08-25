@@ -9,7 +9,7 @@
 int main(int argc, char *argv[], char *env[])
 {
 	char **words = NULL, *line = NULL;
-	int num_words;
+	int num_words, num_commands = 0;
 	(void)argc, (void)argv;
 
 	while (1)
@@ -19,9 +19,10 @@ int main(int argc, char *argv[], char *env[])
 			line = get_line();
 			if (line != NULL)
 			{
+				num_words = number_words(line, ' ');
 				words = token(line);
 				if (words != NULL)
-					exe(words, num_words, env);
+					exe(words, num_words, env, argv, num_commands);
 			}
 			exit(0);
 		}
@@ -29,10 +30,10 @@ int main(int argc, char *argv[], char *env[])
 		line = get_line();
 		if (line != NULL)
 		{
-			num_words = number_words(line);
+			num_words = number_words(line, ' ');
 			words = token(line);
 			if (words != NULL)
-				exe(words, num_words, env);
+				num_commands = exe(words, num_words, env, argv, num_commands);
 		}
 	}
 	return (0);

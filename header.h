@@ -10,15 +10,19 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+int exe(char **words, int num_w, char *env[], char *argv[], int num_c);
+void discover_path(char **words, char **env, char *argv[], int num_c);
 char **token(char *line);
-int exe(char **words, int num_w, char *env[]);
-int length(char *string);
-int number_words(char *str);
-void prompt(void);
+char **split_path();
 char *get_line();
-char **split_path(char *path);
-void discover_path(char *line, char **env, int num_c);
+void prompt(void);
+
+int length(char *string);
+int number_words(char *str, char delim);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
+
+void error_found(char *argv[], int num_c, char *words);
+void error_permisions(char *argv[], int num_c, char *words);
 
 #endif
