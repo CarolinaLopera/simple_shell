@@ -16,14 +16,19 @@ char **token(char *line);
 char **split_path();
 char *get_line();
 void prompt(void);
+void environ_print(char **env);
+int built_in_commands(char **words, char **env);
 
 void ctrl_C(int signal);
 int length(char *string);
 int number_words(char *str, char delim);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
 
 void error_found(char *argv[], int num_c, char *words);
 void error_permisions(char *argv[], int num_c, char *words);
+int write_char(char c);
+void print_int(int n);
 
 #endif

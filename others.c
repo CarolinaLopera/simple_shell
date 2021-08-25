@@ -39,9 +39,16 @@ char *get_line()
 	return (NULL);
 }
 
+/**
+ * ctrl_C - This function ignore the signal of interruption ctrl-c.
+ *
+ * Return: Always void.
+ * @signal: Is the signal to ignore.
+ */
 void ctrl_C(int signal)
 {
 	write(STDOUT_FILENO, "\n", 2);
 	prompt();
 	(void)signal;
 }
+

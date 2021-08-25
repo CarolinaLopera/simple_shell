@@ -1,6 +1,6 @@
 #include "header.h"
 
-void print_int(int num)
+/*void print_int(int num)
 {
 	int num_cpy = num;
 
@@ -14,20 +14,26 @@ void print_int(int num)
     write(1, &num, 1);
     num_cpy %= 10, num_cpy += '0';
     write(1, &num_cpy, 1);
-}
+}*/
 
 /**
- * _putchar - writes the character c to stdout
+ * write_char - writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
- 
+ */
 int write_char(char c)
 {
 	return (write(1, &c, 1));
 }
 
+/**
+ * print_int - Function to print numbers int in console.
+ *
+ * Return: Always void.
+ * @n: is an integer that takes to print.
+ */
 void print_int(int n)
 {
 	if (n / 10 != 0)
@@ -35,7 +41,7 @@ void print_int(int n)
 		print_int(n / 10);
 	}
   	write_char((n % 10) + '0');
-}*/
+}
 
 /**
  * error_found - print a menssage about command not fount in stdout.
@@ -60,7 +66,7 @@ void error_permisions(char *argv[], int num_c, char *words)
 {
 	write(STDOUT_FILENO, argv[0], length(argv[0]));
 	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, &num_c, sizeof(num_c));
+	print_int(num_c);
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, words, length(words));
 	write(STDOUT_FILENO, ": ", 2);

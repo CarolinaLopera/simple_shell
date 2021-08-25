@@ -10,7 +10,7 @@ int main(int argc, char *argv[], char *env[])
 {
 	char **words = NULL, *line = NULL;
 	int num_words, num_commands = 0;
-	(void)argc, (void)argv;
+	(void)argc;
 
 	while (1)
 	{
@@ -36,6 +36,7 @@ int main(int argc, char *argv[], char *env[])
 		{
 			num_words = number_words(line, ' ');
 			words = token(line);
+			built_in_commands(words, env);
 			if (words != NULL)
 			{
 				num_commands = exe(words, num_words, env, argv, num_commands);
