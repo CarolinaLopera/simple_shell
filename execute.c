@@ -53,8 +53,7 @@ void discover_path(char **words, char **env, char *argv[], int num_c)
 	int i, acce;
 	char *dir_current, **num_dir = NULL;
 	pid_t child;
-	(void)env, (void)argv, (void)num_c;
-
+	(void)env;
 	num_dir = split_path();
 
 	for (i = 0; num_dir[i] != NULL; i++)
@@ -77,7 +76,11 @@ void discover_path(char **words, char **env, char *argv[], int num_c)
 				error_permisions(argv, num_c, words[0]);
 			break;
 		}
+		free(dir_current), dir_current = NULL;
 	}
 	if (acce == -1)
 		error_found(argv, num_c, words[0]);
+
+	free(num_dir), num_dir = NULL;
+	free(dir_current), dir_current = NULL;
 }

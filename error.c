@@ -1,5 +1,42 @@
 #include "header.h"
 
+void print_int(int num)
+{
+	int num_cpy = num;
+
+	if (num < 10)
+	{
+		num += '0', write(1, &num, 1);
+		return;
+  	}
+
+    num /= 10, num += '0';
+    write(1, &num, 1);
+    num_cpy %= 10, num_cpy += '0';
+    write(1, &num_cpy, 1);
+}
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ 
+int write_char(char c)
+{
+	return (write(1, &c, 1));
+}
+
+void print_int(int n)
+{
+	if (n / 10 != 0)
+	{
+		print_int(n / 10);
+	}
+  	write_char((n % 10) + '0');
+}*/
+
 /**
  * error_found - print a menssage about command not fount in stdout.
  *
@@ -10,11 +47,9 @@
  */
 void error_found(char *argv[], int num_c, char *words)
 {
-	(void)num_c;
-
 	write(STDOUT_FILENO, argv[0], length(argv[0]));
 	write(STDOUT_FILENO, ": ", 2);
-	/*write(STDOUT_FILENO, num_c, 1);*/
+	print_int(num_c);
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, words, length(words));
 	write(STDOUT_FILENO, ": ", 2);
@@ -23,11 +58,9 @@ void error_found(char *argv[], int num_c, char *words)
 
 void error_permisions(char *argv[], int num_c, char *words)
 {
-	(void)num_c;
-
 	write(STDOUT_FILENO, argv[0], length(argv[0]));
 	write(STDOUT_FILENO, ": ", 2);
-	/*write(STDOUT_FILENO, num_c, 1);*/
+	write(STDOUT_FILENO, &num_c, sizeof(num_c));
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, words, length(words));
 	write(STDOUT_FILENO, ": ", 2);

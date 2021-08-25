@@ -25,7 +25,7 @@ char *get_line()
 
 	count_line = getline(&line, &lineSize, stdin);
 
-	if (count_line == EOF)
+	if (count_line == -1)
 	{
 		free(line);
 		line = NULL;
