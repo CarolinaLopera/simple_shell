@@ -35,8 +35,13 @@ int main(int argc, char *argv[], char *env[])
 		{
 			num_words = number_words(line, ' ');
 			words = token(line);
+			built_in_commands(words, env);
 			if (words != NULL)
+			{
 				num_commands = exe(words, num_words, env, argv, num_commands);
+				free(line);
+				line = NULL;
+			}
 		}
 	}
 	return (0);

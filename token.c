@@ -4,19 +4,17 @@
  * split_path - This function split the path.
  * Return: array of strings
  */
-char **split_path()
+char **split_path(char *path, char **env)
 {
-	char *tok, **num_dir = NULL, *path_cpy;
+	char *tok, **num_dir = NULL;
 	const char *delim = ":";
-	char *path = "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
 	int count, j = 0;
+	(void)env;
 
-	path_cpy = malloc(length(path) * sizeof(char));
-	path_cpy = _strcpy(path_cpy, path);
 	count = number_words(path, ':');
 
 	num_dir = malloc((count + 2) * sizeof(char *));
-	tok = strtok(path_cpy, delim);
+	tok = strtok(path, delim);
 	while (tok != NULL)
 	{
 		num_dir[j] = tok;

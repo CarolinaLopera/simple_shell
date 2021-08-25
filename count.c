@@ -18,7 +18,6 @@ int length(char *string)
 /**
  * number_words - count the words in a string
  * @str: string
- * @delim: Is the delimitador for the string.
  * Return: number of words
  */
 int number_words(char *str, char delim)
@@ -58,6 +57,7 @@ char *_strcat(char *dest, char *src)
 	}
 	dest[a] = 0;
 	return (dest);
+	
 }
 
 /**
@@ -77,4 +77,24 @@ char *_strcpy(char *dest, char *src)
 
 	dest[a] = '\0';
 	return (dest);
+}
+/**
+ * _strcmp - compare two strings
+ * @s1: string one
+ * @s2: string two
+ * Return: 0 if success
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int a;
+
+	for (a = 0; s1[a] != '\0' && s2[a] != '\0'; a++)
+	{
+		if (s1[a] != s2[a])
+		{
+			return (s1[a] - s2[a]);
+			
+		}
+	}
+	return (0);	
 }
