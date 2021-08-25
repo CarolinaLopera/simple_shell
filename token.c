@@ -4,12 +4,11 @@
  * split_path - This function split the path.
  * Return: array of strings
  */
-char **split_path(char *path, char **env)
+char **split_path(char *path)
 {
 	char *tok, **num_dir = NULL;
 	const char *delim = ":";
 	int count, j = 0;
-	(void)env;
 
 	count = number_words(path, ':');
 

@@ -59,7 +59,7 @@ void discover_path(char **words, char **env, char *argv[], int num_c)
 	char *path = malloc(length(env[19]) * sizeof(char));
 
 	path = _strcpy(path, env[19]);
-	num_dir = split_path(path, env);
+	num_dir = split_path(path);
 
 	for (i = 0; num_dir[i] != NULL; i++)
 	{

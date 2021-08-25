@@ -13,11 +13,11 @@
 int exe(char **words, int num_w, char *env[], char *argv[], int num_c);
 void discover_path(char **words, char **env, char *argv[], int num_c);
 char **token(char *line);
-char **split_path(char *path, char **env);
+char **split_path(char *path);
 char *get_line();
 void prompt(void);
 void environ_print(char **env);
-int built_in_commands(char **words, char **env);
+int built_in_commands(char **words, char **env, char *line);
 
 void ctrl_C(int signal);
 int length(char *string);

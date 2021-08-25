@@ -19,16 +19,20 @@ void environ_print(char **env)
  * @env: environment
  * Return: always 0
  */
-int built_in_commands(char **words, char **env)
+int built_in_commands(char **words, char **env, char *line)
 {
 	if (_strcmp(words[0], "exit") == 0)
 	{
+		free(words), words = NULL;
+		free(line), line = NULL;
 		exit(0);
 	}
 	else if (_strcmp(words[0], "env") == 0)
 	{
+		free(words), words = NULL;
 		environ_print(env);
+		return (0);
 	}
 	
-	return (0);
+	return (1);
 }
