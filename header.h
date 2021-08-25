@@ -17,6 +17,7 @@ char **split_path();
 char *get_line();
 void prompt(void);
 
+void ctrl_C(int signal);
 int length(char *string);
 int number_words(char *str, char delim);
 char *_strcat(char *dest, char *src);

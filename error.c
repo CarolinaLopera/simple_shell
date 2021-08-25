@@ -15,7 +15,6 @@ void error_found(char *argv[], int num_c, char *words)
 	write(STDOUT_FILENO, argv[0], length(argv[0]));
 	write(STDOUT_FILENO, ": ", 2);
 	/*write(STDOUT_FILENO, num_c, 1);*/
-	printf("%i", num_c);
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, words, length(words));
 	write(STDOUT_FILENO, ": ", 2);

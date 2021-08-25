@@ -12,7 +12,6 @@ void prompt(void)
 	write(STDOUT_FILENO, prompt, 5);
 }
 
-
 /**
  * get_line - This function get the a string of stdin.
  *
@@ -38,4 +37,11 @@ char *get_line()
 	free(line);
 	line = NULL;
 	return (NULL);
+}
+
+void ctrl_C(int signal)
+{
+	write(STDOUT_FILENO, "\n", 2);
+	prompt();
+	(void)signal;
 }

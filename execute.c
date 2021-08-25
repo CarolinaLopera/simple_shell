@@ -74,7 +74,7 @@ void discover_path(char **words, char **env, char *argv[], int num_c)
 					execve(dir_current, words, NULL);
 			}
 			else
-				write(STDOUT_FILENO, "permisos denegados\n", 19);
+				error_permisions(argv, num_c, words[0]);
 			break;
 		}
 	}
