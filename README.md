@@ -73,7 +73,6 @@ we will compile as follows
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-hola
 
 ## Authors
 
