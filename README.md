@@ -4,7 +4,7 @@
 
 In this project we develop a command line interpreter (shell), whose main function is to receive commands from users in the terminal and interpret those instructions which is expected to be executed in the operating system kernel,this shell is similar to la bourne shell (sh).
 
-## project informaticon
+## project information
 
 
 ### Requirements
