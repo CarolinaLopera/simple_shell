@@ -67,7 +67,7 @@ this file has two functions whose objective is to return the number of words in 
 | length(char *string) | count number of characters | 
 | number_words(char *str) | count number of words | 
 
-### compilation
+## compilation
 
 we will compile as follows
 
@@ -75,7 +75,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 
 
-### Authors
+## Authors
 
 **Carolina Lopera**
 
