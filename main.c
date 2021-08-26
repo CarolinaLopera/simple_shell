@@ -34,11 +34,7 @@ int main(int argc, char *argv[], char *env[])
 				free(line), line = NULL;
 			}
 			if (!isatty(STDIN_FILENO))
-			{
-				free(line);
-				line = NULL;
 				exit(0);
-			}
 		}
 	}
 	return (0);
