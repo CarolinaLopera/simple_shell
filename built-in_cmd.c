@@ -1,6 +1,6 @@
 #include "header.h"
 /**
- * environment - print the environment
+ * environ_print - print the environment
  * @env: evironment
  * Return: nothing
  */
@@ -17,6 +17,7 @@ void environ_print(char **env)
  * built_in_commands - identify if the input is bultin
  * @words: input tokenized
  * @env: environment
+ * @line: is the line get whith get_line
  * Return: always 0
  */
 int built_in_commands(char **words, char **env, char *line)
@@ -33,6 +34,6 @@ int built_in_commands(char **words, char **env, char *line)
 		environ_print(env);
 		return (0);
 	}
-	
+
 	return (1);
 }

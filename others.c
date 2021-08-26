@@ -48,7 +48,7 @@ char *get_line()
 void ctrl_C(int signal)
 {
 	(void)signal;
-	
+
 	write(STDOUT_FILENO, "\n", 1);
 	prompt();
 }

@@ -3,6 +3,7 @@
 /**
  * split_path - This function split the path.
  * Return: array of strings
+ * @path: is the path of env.
  */
 char **split_path(char *path)
 {

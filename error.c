@@ -10,7 +10,6 @@
 int write_char(char c)
 {
 	return (write(1, &c, 1));
-	
 }
 
 /**
@@ -24,7 +23,6 @@ void print_int(int n)
 	if (n / 10 != 0)
 	{
 		print_int(n / 10);
-		
 	}
 	write_char((n % 10) + '0');
 }
