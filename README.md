@@ -56,4 +56,4 @@ In this project we develop a command line interpreter (shell), whose main functi
        * [GitHub](https://github.com/jaroldhakins)
        **Andres Duque**
        * [GitHub](https://github.com/totod8)
-       ![holberton1](https://user-images.githubusercontent.com/85572579/130709393-dc415475-4e34-4c6a-bc4e-ea10d448003e.png)# hola
+       ![holberton1](https://user-images.githubusercontent.com/85572579/130709393-dc415475-4e34-4c6a-bc4e-ea10d448003e.png)
