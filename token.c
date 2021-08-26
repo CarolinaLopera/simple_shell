@@ -7,7 +7,7 @@
  */
 char **split_path(char *path)
 {
-	char *tok, **num_dir = NULL;
+	char *tok = NULL, **num_dir = NULL;
 	const char *delim = ":";
 	int count, j = 0;
 
@@ -35,7 +35,7 @@ char **split_path(char *path)
 char **token(char *line)
 {
 	const char *DELIM = " ";
-	char *tok, **words = NULL;
+	char *tok = NULL, **words = NULL;
 	int j = 0, num_w = number_words(line, ' ');
 
 	if (num_w == 0)

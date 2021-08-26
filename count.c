@@ -9,7 +9,7 @@ int length(char *string)
 {
 	int i = 0;
 
-	while (string[i])
+	while (string[i] != '\0')
 		i++;
 
 	return (i);
@@ -56,7 +56,7 @@ char *_strcat(char *dest, char *src)
 		dest[a] = src[b];
 		a++;
 	}
-	dest[a] = 0;
+	dest[a] = '\0';
 	return (dest);
 }
 

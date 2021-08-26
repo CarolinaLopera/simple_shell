@@ -13,12 +13,12 @@
 int exe(char **words, int num_w, char *env[], char *argv[], int num_c)
 {
 	int exec = 0, i, len;
-	char *argx;
+	char *argx = NULL;
 	pid_t p1, p2;
 
 	num_w--, num_c++;
 	len = length(words[num_w]) - 1;
-	argx = malloc(len * sizeof(char));
+	argx = malloc((len + 5) * sizeof(char));
 
 	for (i = 0; i < len; i++)
 	{
@@ -53,17 +53,18 @@ int exe(char **words, int num_w, char *env[], char *argv[], int num_c)
  */
 void discover_path(char **words, char **env, char *argv[], int num_c)
 {
-	int i, acce;
-	char *dir_current, **num_dir = NULL;
+	int i, acce, len = length(env[19]), len2;
+	char *dir_current = NULL, **num_dir = NULL;
 	pid_t child;
-	char *path = malloc(length(env[19]) * sizeof(char));
+	char *path = malloc((len + 14) * sizeof(char));
 
 	path = _strcpy(path, env[19]);
 	num_dir = split_path(path);
 
 	for (i = 0; num_dir[i] != NULL; i++)
 	{
-		dir_current = malloc(length(num_dir[i]) * sizeof(char));
+		len2 = length(num_dir[i]);
+		dir_current = malloc((len2 + 50) * sizeof(char));
 		dir_current = _strcpy(dir_current, num_dir[i]);
 		_strcat(dir_current, "/"), _strcat(dir_current, words[0]);
 

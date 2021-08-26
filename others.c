@@ -19,7 +19,7 @@ void prompt(void)
  */
 char *get_line()
 {
-	char *line;
+	char *line = NULL;
 	size_t lineSize = 0;
 	int count_line = 0;
 
