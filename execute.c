@@ -18,7 +18,7 @@ int exe(char **words, int num_w, char *env[], char *argv[], int num_c)
 
 	num_w--, num_c++;
 	len = length(words[num_w]) - 1;
-	argx = malloc((len + 5) * sizeof(char));
+	argx = malloc((len + 1) * sizeof(char));
 
 	for (i = 0; i < len; i++)
 	{
@@ -53,21 +53,23 @@ int exe(char **words, int num_w, char *env[], char *argv[], int num_c)
  */
 void discover_path(char **words, char **env, char *argv[], int num_c)
 {
-	int i, acce, len, len2;
+	int i, acce, len, len2, len3;
 	char *dir_current = NULL, **num_dir = NULL, *path;
 	pid_t child;
-	char *path_ = "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
+	char *path_1 = "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr";
+	char *path_2 = "/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
 	(void)env;
-	len = length(path_);
+	len = length(path_1);
+	len3 = length(path_2);
 
-	path = malloc((len + 14) * sizeof(char));
-	path = _strcpy(path, path_);
+	path = malloc((len + len3 + 2) * sizeof(char));
+	path = _strcpy(path, path_1);
+	path = _strcat(path, path_2);
 	num_dir = split_path(path);
-
 	for (i = 0; num_dir[i] != NULL; i++)
 	{
 		len2 = length(num_dir[i]);
-		dir_current = malloc((len2 + 50) * sizeof(char));
+		dir_current = malloc((len2 + 30) * sizeof(char));
 		dir_current = _strcpy(dir_current, num_dir[i]);
 		_strcat(dir_current, "/"), _strcat(dir_current, words[0]);
 
@@ -79,12 +81,10 @@ void discover_path(char **words, char **env, char *argv[], int num_c)
 				child = fork();
 				wait(NULL);
 				if (child == 0)
-					execve(dir_current, words, NULL);
-			}
+					execve(dir_current, words, NULL); }
 			else
 				error_permisions(argv, num_c, words[0]);
-			break;
-		}
+			break; }
 		free(dir_current), dir_current = NULL;
 	}
 	if (acce == -1)
