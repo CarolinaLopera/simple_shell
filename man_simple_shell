@@ -1,0 +1,74 @@
+.TH JAC$ "25 august 2021" "version 1.0" "simple shell"                                                
+                                                                                                      
+.SH NAME                                                                                              
+                                                                                                      
+.B hsh                                                                                                
+- command interpreter (simple shell).                                                                 
+H SYNOPSIS                                                                                            
+.B ./hsh                                                                                              
+                                                                                                      
+.SH DESCRIPTION                                                                                       
+This shell has the objective of recognizing commands and executing them from a standard input or from 
+a path and also has two modes for its operation that are interactive and non-interactive mode         
+                                                                                                      
+.SH SYNTAX                                                                                            
+JAC$ <command> <flags or options> <argument 1> <argument 2> ...                                       
+                                                                                                      
+                                                                                                      
+.SH INVOCATION                                                                                        
+.B "mode interactive and non-interactive"                                                             
+                                                                                                      
+for the interactive mode we execute with ./hsh and it does not start with arguments and we also distin
+guish it perfectly since the prompete appears as follows: $ JAC.                                      
+                                                                                                      
+such that the shell loops until the user interacts with the, and in non-interactive mode it is execute
+d with the pipeline as follows: [command] | ./hsh ", it is worth clarifying that to use this mode we m
+ust start with arguments.                                                                             
+                                                                                                      
+.SH COMMANDS EXECUTION                                                                                
+In our shell, the commands that users enter are validated by passing through the respective functions 
+as arguments. The first thing to do is check if the command contains a ./ at the beginning it would be
+ executed as a relative path and if it begins with a "/" at the beginning this is dedicated to perform
+ a function destined to execute paths,                                                                
+                                                                                                      
+For our shell to take what was entered as a command, neither of the two previous conditions must be me
+t                                                                                                     
+                                                                                                      
+.SH EXAMPLES                                                                                          
+                                                                                                      
+.B built-in 
+​
+JAC$ ls                                                                                          JAC$ ls                                                                                               
+                                                                                                      
+AUTHORS  README.md  built-in_cmd.c  count.c  error.c  execute.c  header.h  hsh  main.c  man_1_simple_s
+hell  others.c  token.c                                                                               
+                                                                                                      
+JAC$ exit                                                                                             
+                                                                                                      
+caro@LAPTOP-EMQ3RGP5:~/holberton/simple_shell$                                                        
+                                                                                                      
+.B mode interactive                                                                                   
+JAC$ ls                                                                                               
+README.md  chao  count.c  error.c  execute.c  header.h  hola  hsh  main.c  others.c  token.c          
+JAC$                                                                                                  
+                                                                                                      
+JAC$ /bin/ls                                                                                          
+README.md  chao  count.c  error.c  execute.c  header.h  hola  hsh  main.c  others.c  token.c          
+JAC$                                                                                                  
+                                                                                                      
+.B mode non - interactive                                                                             
+                                                                                                      
+echo "/bin/ls" | ./hsh                                                                                
+README.md  chao  count.c  error.c  execute.c  header.h  hola  hsh  main.c  others.c  token.c          
+                                                                                                      
+.SH EXIT STATUS                                                                                       
+                                                                                                      
+if the shell has a non-zero exit state, it is because the shell is encountering a syntax error.if the 
+shell is in non-interactive mode, the execution of the shell file will be aborted, otherwise the shell
+ will return the exit status of the last command executed.                                            
+                                                                                                      
+                                                                                                      
+.SH AUTHORS                                                                                           
+carolina lopera                                                                                       
+jarold hakins                                                                                         
+andres felipe duque

@@ -1,6 +1,8 @@
 # simple shell
 ## description
 In this project we develop a command line interpreter (shell), whose main function is to receive commands from users in the terminal and interpret those instructions which is expected to be executed in the operating system kernel,this shell is similar to la bourne shell (sh).
+You can see the flowchart of the main function of the program in [this link](https://miro.com/welcomeonboard/NHNlcnJyTUxlaHBQdDJNMXR3aFZSUmRURVgyMGhVeWU5dm9yYldwVVJCcHZCUDlwdWZUVDJCaHl4RzU1MFhmb3wzMDc0NDU3MzYwMDYxNDk1Njc1).
+
 ## project information
 ### Requirements
  * Allowed editors: vi, vim, emacs
