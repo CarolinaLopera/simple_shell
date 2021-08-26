@@ -53,12 +53,15 @@ int exe(char **words, int num_w, char *env[], char *argv[], int num_c)
  */
 void discover_path(char **words, char **env, char *argv[], int num_c)
 {
-	int i, acce, len = length(env[19]), len2;
-	char *dir_current = NULL, **num_dir = NULL;
+	int i, acce, len, len2;
+	char *dir_current = NULL, **num_dir = NULL, *path;
 	pid_t child;
-	char *path = malloc((len + 14) * sizeof(char));
+	char *path_ = "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
+	(void)env;
+	len = length(path_);
 
-	path = _strcpy(path, env[19]);
+	path = malloc((len + 14) * sizeof(char));
+	path = _strcpy(path, path_);
 	num_dir = split_path(path);
 
 	for (i = 0; num_dir[i] != NULL; i++)
